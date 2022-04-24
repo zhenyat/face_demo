@@ -1,0 +1,45 @@
+################################################################################
+# default.yml:
+#   Contains shell config options for the Application
+#   (not needed to be stored in DB)
+#
+#   Source:   http://answerstop.org/question/93679/best-way-to-create-custom-config-options-for-my-rails-app
+#
+#   Loaded to SHELL_CONFIG  in:  ./initializers/shell_load.rb
+#
+#   Add this file to .gitignore (?)
+#
+#   NB! DO NOT UPDATE THIS FILE FOR DEBUG - use run.yml instead
+#
+#   11.10.2016  Inherited from 95km
+#   30.08.2017  'access_restricted' key is added
+#   24.04.2022  Adopted
+################################################################################
+
+defaults: &defaults
+
+  debug:
+    status:           false
+    path:             ''
+
+  mail:
+    bcc:              bob@dummy.com
+    path:             public/mail/attachments
+
+  access_restricted:  false
+  
+  period:             1.day
+  time_slot:          30.minutes
+  
+development:
+  <<: *defaults
+
+  debug:
+    status:           true
+    path:             log/debug.log
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

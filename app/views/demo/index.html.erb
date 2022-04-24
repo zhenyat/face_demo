@@ -1,11 +1,23 @@
 <div class="container-fluid">
-  <h1>Demo#index</h1>
-  <p class="text-success"><%= @message %></p>
+  <h1>App Demo / Test Page</h1>
+
   <hr/>
+  <h3>Bootstrap</h3>
+  <p class="text-success"><%= @message %></p>
+
+  <hr/>
+  <h3>API</h3>
   <ul>
     <li><%= "Domain: #{@domain}" if @domain.present? %></li>
     <li><%= "Key: #{@key}" if @key.present? %></li>
     <li><%= "Secret: #{@secret}" if @secret.present? %></li>
   </ul>
+
   <hr/>
+  <h3>Shell Parameters</h3>
+  <ul>
+    <% SHELL_CONFIG.each  do |key, value| %>
+    <li><%= "#{key}: #{value}"%></li>
+    <% end %>
+  </ul>
 </div>

@@ -1,0 +1,22 @@
+################################################################################
+# run.yml:
+#   Contains shell config options for the Application Run:
+#     corresponding default values to be updated
+#
+#   Loaded in:  ./initializers/shell_load.rb
+#
+#   11.10.2016  Inherited from 95km
+#   30.08.2017  'access_restricted' key is added
+#   24.02.2022  Adopted
+################################################################################
+
+mail:
+  bcc:              bob@dummy.com
+
+debug:
+  status:           false
+
+access_restricted:  true 
+
+period:             1.day
+time_slot:          15.minutes

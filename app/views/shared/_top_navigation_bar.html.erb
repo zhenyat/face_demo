@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-faded">
+  <div class="container-fluid">
+    <!-- Brand (App Home Page) -->
+    <div class="navbar-brand">
+      <%= link_to image_tag('logos/app.png', title: app_name,  size: '50x50'), root_path %>
+    </div>
+    <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <!-- Dropdown list -->
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+            <span aria-hidden="true" class="fas fa-database fa-2x" style="color:navy"></span>
+            <%= "Demo Pages" %>
+          </a>
+          <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+            <div class="dropdown-item" >
+              <%= link_to "API Keys",  demo_index_path %>
+            </div>
+            <div class="dropdown-item" >
+              <%= link_to "Public API",  "#" %>
+            </div>
+            <div class="dropdown-item" >
+              <%= link_to "Trade API",  "#" %>
+            </div>
+            <div class="dropdown-item" >
+              <%= link_to "Charts",  "#" %>
+            </div>
+          </div>
+        </li>
+            <%# %h4=link_to "Public API", pages_public_api_path
+            %h4= link_to "Trade API", pages_trade_api_path
+            %h4= link_to "Charts", pages_charts_path %>
+
+        <!-- Dropdown list -->
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+            <span aria-hidden="true" class="fas fa-database fa-2x" style="color:navy"></span>
+            <%= "Working Pages" %>
+          </a>
+          <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+            <div class="dropdown-item" >
+              <%= link_to "Pairs",  "#" %>
+            </div>
+            <div class="dropdown-item" >
+              <%= link_to "Trades History",  "#" %>
+            </div>
+            <div class="dropdown-item" >
+              <%= link_to "OHLC",  "#" %>
+            </div>
+            <div class="dropdown-item" >
+              <%= link_to "Candlesticks Chart",  "#" %>
+            </div>
+            <div class="dropdown-item" >
+              <%= link_to "Trades Data",  "#" %>
+            </div>
+            <div class="dropdown-item" >
+              <%= link_to "Depth Data",  "#" %>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+ </nav>
+      <%# %h4= link_to "Pairs", pages_pairs_path
+      %h4= link_to "Trades History", trades_index_path
+      %h4= link_to "OHLC", trades_ohlc_path
+      %h4= link_to "Candlesticks Chart", trades_candlesticks_path
+      %h4= link_to "Trades Data", pages_trades_data_path
+      %h4= link_to "Depth Data", pages_depth_data_path %>
+

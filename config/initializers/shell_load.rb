@@ -5,7 +5,7 @@
 #
 #   Source: http://railscasts.com/episodes/85-yaml-configuration-file
 #
-#   11.10.2016  ZT Inherited from 95km
+#   11.10.2016  Inherited from 95km
 #   24.04.2022  Adopted
 ################################################################################
 

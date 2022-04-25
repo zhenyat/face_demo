@@ -18,7 +18,7 @@ module ApplicationHelper
   ##############################################################################
   #  Handles flash type and sets a note class
   #
-  #  14.01.2017 ZT
+  #  14.01.2017 Created
   ##############################################################################
   def bootstrap_class_for(flash_type)
     case flash_type
@@ -39,7 +39,7 @@ module ApplicationHelper
   # Handles Error messages with Bootstrap 3 styles
   # Source: http://stackoverflow.com/questions/15155890/styling-form-error-message-bootstrap-rails
   #
-  # 18.07.2015  ZT
+  # 18.07.2015  Created
   # 12.02.2022  object locales corrected
   ##############################################################################
   def errors_for(object)
@@ -83,7 +83,7 @@ module ApplicationHelper
   ##############################################################################
   # *language_switch* method updated for Bootstrap 4
   #
-  # 08.12.2015  ZT
+  # 08.12.2015  Created
   # 12.09.2016  updated for Admin (argument 'mode' added)
   # 09.01.2017  Fixing error: Attempting to generate a URL from non-sanitized request parameters!
   #             Solution: use *permit!* method:  params.merge(locale: loc).permit!
@@ -104,7 +104,7 @@ module ApplicationHelper
   ##############################################################################
   # *language_switch* method updated for Bootstrap 5
   #
-  # 08.12.2015  ZT
+  # 08.12.2015  Created
   # 12.09.2016  updated for Admin (argument 'mode' added)
   # 09.01.2017  Fixing error: Attempting to generate a URL from non-sanitized request parameters!
   #             Solution: use *permit!* method:  params.merge(locale: loc).permit!
@@ -175,7 +175,7 @@ module ApplicationHelper
   # Returns a date in the format:
   #   'Month d' (for current year) / 'Month d, year'
   #
-  # 24.08.2017  ZT
+  # 24.08.2017  Created
   ##############################################################################
   def zt_date date
     if date.year == Time.now.year

@@ -14,7 +14,7 @@ gem "stimulus-rails"
 gem "cssbundling-rails"
 gem "jbuilder"
 
-# gem 'face', :github => 'zhenyat/face.git', :branch => 'master'
+# gem 'face', :github => 'zhenyat/face.git', :branch => 'main'
 gem 'face', path: '~/ZT_Lab/Ruby/Gems/face'
 
 gem 'simple_form'              # https://github.com/plataformatec/simple_form

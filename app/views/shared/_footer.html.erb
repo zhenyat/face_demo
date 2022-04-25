@@ -1,0 +1,19 @@
+  <div class="container">
+  <footer class="bg-dark p-2 text-dark bg-opacity-10">
+
+    <hr>
+      <div class="row">
+        <div class="col-md-offset-1 col-md-6 vcenter">
+          <%= "#{app_name}" %>
+        </div>
+        <div class="col-md-5 vcenter">
+          <%= image_tag "logos/developer.png", size: "32x32"%>
+          <%= "© #{Time.now.year}" %>
+          <%= "Site Design" %>
+        </div>
+      </div>
+    </hr>
+    <%= render 'shared/debug' if SHELL_DEBUG %>
+</footer>
+  </div>
+

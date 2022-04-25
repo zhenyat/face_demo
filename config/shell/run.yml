@@ -14,7 +14,7 @@ mail:
   bcc:              bob@dummy.com
 
 debug:
-  status:           false
+  status:           true
 
 access_restricted:  true 
 

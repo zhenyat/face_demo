@@ -1,13 +1,13 @@
 <table class='table table-striped'>
   <tbody>
-    <% @coin_nickname.attributes.each do |key, value| %>
+    <% @pair_nickname.attributes.each do |key, value| %>
       <tr>
         <% unless key == 'id' || key.include?('digest') || key == 'created_at' || key == 'updated_at' ||  key == 'cover_image_url'  %>
           <% if key == 'status' %>
             <td><%= t 'status.status' %></td>
-            <td><%= status_mark @coin_nickname.status %></td>
+            <td><%= status_mark @pair_nickname.status %></td>
           <% else %>
-            <td><%= t "activerecord.attributes.coin_nickname.#{key}" %></td>
+            <td><%= t "activerecord.attributes.pair_nickname.#{key}" %></td>
             <td><%= value %></td>
           <% end %>
         <% end %>

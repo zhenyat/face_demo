@@ -25,6 +25,8 @@ class Pair < ApplicationRecord
   belongs_to :base,  class_name: 'Coin'
   belongs_to :quote, class_name: 'Coin'
 
+  has_many :pair_nicknames, dependent: :delete_all
+
   # has_many   :trades
 
   enum level:  %w(Major Minor Exotic)

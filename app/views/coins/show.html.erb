@@ -1,0 +1,6 @@
+<div class='container'>
+  <p style='color: green'><%= notice %></p>
+  <h1><%= "Coin" %> <%= image_tag @coin.avatar.variant(resize_to_limit: [50, 50]) %></h1>
+  <%= render @coin %>
+  <%= render 'shared/show_actions', object: @coin %>
+</div>

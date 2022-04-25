@@ -10,58 +10,71 @@
     
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
-        <!-- Dropdown list -->
+
+        <!-- Working Dropdown list -->
         <li class="nav-item dropdown">
           <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="navbarDropdown" role="button">
-            <span aria-hidden="true" class="fas fa-database fa-2x" style="color:navy"></span>
-            <%= "Demo Pages" %>
+            <span aria-hidden="true" class="fa-solid fa-folder" style="color:navy"></span>
+            <%= "Working Pages" %>
+          </a>
+          <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+            <div class="dropdown-item ">
+              <%= link_to "Pairs",  "#", class: "text-decoration-none" %>
+            </div>
+            <div class="dropdown-item" >
+              <%= link_to "Trades History",  "#", class: "text-decoration-none" %>
+            </div>
+            <div class="dropdown-item" >
+              <%= link_to "OHLC",  "#", class: "text-decoration-none" %>
+            </div>
+            <div class="dropdown-item" >
+              <%= link_to "Candlesticks Chart",  "#", class: "text-decoration-none" %>
+            </div>
+            <div class="dropdown-item" >
+              <%= link_to "Trades Data",  "#", class: "text-decoration-none" %>
+            </div>
+            <div class="dropdown-item" >
+              <%= link_to "Depth Data",  "#", class: "text-decoration-none" %>
+            </div>
+          </div>
+        </li>
+
+        <!-- Entities Dropdown list -->
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+            <span aria-hidden="true" class="fa-solid fa-database" style="color:navy"></span>
+            <%= "Entities" %>
           </a>
           <div aria-labelledby="navbarDropdown" class="dropdown-menu">
             <div class="dropdown-item" >
-              <%= link_to "App Demo",  demo_index_path %>
+              <%= link_to "Coins",  coins_path, class: "text-decoration-none" %>
+            </div>
+        </li>
+
+        <!-- Demo Dropdown list -->
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+            <span aria-hidden="true" class="fa-solid fa-folder" style="color:navy"></span>
+            <%= "Demo Pages" %> 
+          </a>
+          <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+            <div class="dropdown-item" >
+              <%= link_to "App Demo",  demo_index_path, class: "text-decoration-none", class: "text-decoration-none" %>
             </div>
             <div class="dropdown-item" >
-              <%= link_to "Public API",  "#" %>
+              <%= link_to "Public API",  "#", class: "text-decoration-none" %>
             </div>
             <div class="dropdown-item" >
-              <%= link_to "Trade API",  "#" %>
+              <%= link_to "Trade API",  "#", class: "text-decoration-none" %>
             </div>
             <div class="dropdown-item" >
-              <%= link_to "Charts",  "#" %>
+              <%= link_to "Charts",  "#", class: "text-decoration-none" %>
             </div>
           </div>
         </li>
             <%# %h4=link_to "Public API", pages_public_api_path
             %h4= link_to "Trade API", pages_trade_api_path
             %h4= link_to "Charts", pages_charts_path %>
-
-        <!-- Dropdown list -->
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="navbarDropdown" role="button">
-            <span aria-hidden="true" class="fas fa-database fa-2x" style="color:navy"></span>
-            <%= "Working Pages" %>
-          </a>
-          <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-            <div class="dropdown-item" >
-              <%= link_to "Pairs",  "#" %>
-            </div>
-            <div class="dropdown-item" >
-              <%= link_to "Trades History",  "#" %>
-            </div>
-            <div class="dropdown-item" >
-              <%= link_to "OHLC",  "#" %>
-            </div>
-            <div class="dropdown-item" >
-              <%= link_to "Candlesticks Chart",  "#" %>
-            </div>
-            <div class="dropdown-item" >
-              <%= link_to "Trades Data",  "#" %>
-            </div>
-            <div class="dropdown-item" >
-              <%= link_to "Depth Data",  "#" %>
-            </div>
-          </div>
-        </li>
       </ul>
     </div>
   </div>

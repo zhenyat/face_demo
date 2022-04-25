@@ -15,9 +15,9 @@
 class Coin < ApplicationRecord
   include Avatarable
   
-  # has_many :coin_nicknames, dependent: :delete_all
-  # has_many :based_pairs,  class_name: 'Pair', foreign_key: 'base_id',  dependent: :delete_all
-  # has_many :quoted_pairs, class_name: 'Pair', foreign_key: 'quote_id', dependent: :delete_all
+  has_many :coin_nicknames, dependent: :delete_all
+  has_many :based_pairs,  class_name: 'Pair', foreign_key: 'base_id',  dependent: :delete_all
+  has_many :quoted_pairs, class_name: 'Pair', foreign_key: 'quote_id', dependent: :delete_all
   
   enum kind:   %w(crypto fiat)
   enum status: %w(active archived)

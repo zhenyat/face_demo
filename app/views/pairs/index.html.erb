@@ -1,0 +1,51 @@
+<div class="container">
+  <h1>Pairs</h1>
+  <table class='table table-hover'>
+    <thead>
+        <th><%= Pair.human_attribute_name(:name) %></th>
+        <th><%= Pair.human_attribute_name(:code) %></th>
+        <th><%= Pair.human_attribute_name(:level) %></th>
+        <th><%= Pair.human_attribute_name(:decimal_places) %></th>
+        <th><%= Pair.human_attribute_name(:min_price) %></th>
+        <th><%= Pair.human_attribute_name(:max_price) %></th>
+        <th><%= Pair.human_attribute_name(:min_amount) %></th>
+        <th><%= Pair.human_attribute_name(:hidden) %></th>
+        <th><%= Pair.human_attribute_name(:fee) %></th>
+        <th><%= Pair.human_attribute_name(:avatar) %></th>
+        <th><%= "Status" %></th>
+        <th><%= "Actions" %><th>
+    </thead>
+
+    <tbody>
+      <% @pairs.each do |pair| %>
+        <tr>
+
+          <td><%= pair.name %></td>
+          <td><%= pair.code %></td>
+          <td><%= pair.level %></td>
+          <td><%= pair.decimal_places %></td>
+          <td><%= pair.min_price %></td>
+          <td><%= pair.max_price %></td>
+          <td><%= pair.min_amount %></td>
+          <td><%= pair.hidden %></td>
+          <td><%= pair.fee %></td>
+          <% if pair.avatar.attached? %>
+            <td ><%= image_tag pair.avatar.variant(resize_to_limit: [30, 30]) %></td>
+          <% else %>
+            <td></td>
+          <% end %>
+          <td><%= status_mark pair.status %></td>
+
+          <td><%= render 'shared/index_buttons', resource: pair %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class='row'>
+    <div class='col-md-2'>
+      <%= link_to "New", new_pair_path, class: 'btn btn-primary btn-sm' %>
+    </div>
+  </div>
+</div>
+

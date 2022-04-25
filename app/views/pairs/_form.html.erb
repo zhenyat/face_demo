@@ -1,0 +1,22 @@
+<%= simple_form_for(@pair) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.association :base %>
+    <%= f.association :quote %>
+    <%= f.input :name %>
+    <%= f.input :code %>
+    <%= f.input :level %>
+    <%= f.input :decimal_places %>
+    <%= f.input :min_price %>
+    <%= f.input :max_price %>
+    <%= f.input :min_amount %>
+    <%= f.input :hidden %>
+    <%= f.input :fee %>
+    <%= f.input :status %>
+
+    <%= render 'shared/form_avatar',  f: f, object: @pair %>
+    <%= render 'shared/form_actions', f: f, object: @pair %>
+  </div>
+<% end %>

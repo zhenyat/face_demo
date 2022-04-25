@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_25_153415) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_25_160105) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -59,6 +59,27 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_25_153415) do
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_coins_on_code", unique: true
     t.index ["name"], name: "index_coins_on_name", unique: true
+  end
+
+  create_table "pairs", force: :cascade do |t|
+    t.integer "base_id"
+    t.integer "quote_id"
+    t.string "name", null: false
+    t.string "code", null: false
+    t.integer "level", limit: 1, default: 0, null: false
+    t.integer "decimal_places"
+    t.decimal "min_price", precision: 10, scale: 5
+    t.decimal "max_price", precision: 10, scale: 5
+    t.decimal "min_amount", precision: 10, scale: 5
+    t.integer "hidden", limit: 1
+    t.decimal "fee", precision: 5, scale: 2
+    t.integer "status", limit: 1, default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["base_id"], name: "index_pairs_on_base_id"
+    t.index ["code"], name: "index_pairs_on_code", unique: true
+    t.index ["name"], name: "index_pairs_on_name", unique: true
+    t.index ["quote_id"], name: "index_pairs_on_quote_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

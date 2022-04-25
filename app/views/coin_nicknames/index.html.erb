@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Coin Nicknames</h1>
+  <table class='table table-hover'>
+    <thead>
+        <th><%= "Nickname" %></th>
+        <th><%= Coin.human_attribute_name(:coin) %></th>
+        <th><%= "Status" %></th>
+        <th><%= "Actions" %><th>
+    </thead>
+
+    <tbody>
+      <% @coin_nicknames.each do |coin_nickname| %>
+        <tr>
+          <td><%= coin_nickname.name %></td>
+          <td><%= coin_nickname.coin.name %></td>
+          <td><%= status_mark coin_nickname.status %></td>
+
+          <td><%= render 'shared/index_buttons', resource: coin_nickname %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class='row'>
+    <div class='col-md-2'>
+      <%= link_to "New", new_coin_nickname_path, class: 'btn btn-primary btn-sm' %>
+    </div>
+  </div>
+</div>

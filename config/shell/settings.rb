@@ -29,6 +29,12 @@ MAIL_BCC = SHELL_CONFIG['mail']['bcc']
 # Access control
 ACCESS_RESTRICTED = SHELL_CONFIG['access_restricted']
 
+##### Pattern constants  #####
+EQUAL_PERCENT = ZT_CONFIG['equal_percent']
+LONG_SHADOW   = ZT_CONFIG['long_shadow']
+SMALL_SHADOW  = ZT_CONFIG['small_shadow']
+
 ##### Time Slot for candles  #####
-PERIOD    = eval SHELL_CONFIG['period'] 
-TIME_SLOT = eval SHELL_CONFIG['time_slot']
+PERIOD     = eval ZT_CONFIG['period'] 
+TIME_SLOT  = eval ZT_CONFIG['time_slot']
+TIME_SLOTS = ZT_CONFIG['time_slots'] 

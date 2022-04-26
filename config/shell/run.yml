@@ -7,6 +7,7 @@
 #
 #   11.10.2016  Inherited from 95km
 #   30.08.2017  'access_restricted' key is added
+#   22.05.2018  *emulation* key added
 #   24.02.2022  Adopted
 ################################################################################
 
@@ -16,7 +17,11 @@ mail:
 debug:
   status:           true
 
-access_restricted:  true 
+# access_restricted:  true
+#emulation:          true
+
+equal_percent:      0.015
 
 period:             1.day
 time_slot:          15.minutes
+time_slots:         [300, 900, 1800, 3600] # New Candles time slots set (in seconds)

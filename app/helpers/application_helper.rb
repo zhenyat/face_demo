@@ -170,18 +170,4 @@ module ApplicationHelper
       content_tag(:font, status, color: 'red')
     end
   end
-
-  ##############################################################################
-  # Returns a date in the format:
-  #   'Month d' (for current year) / 'Month d, year'
-  #
-  # 24.08.2017  Created
-  ##############################################################################
-  def zt_date date
-    if date.year == Time.now.year
-      l date, format: :short
-    else
-      l date, format: :long
-    end
-  end
 end

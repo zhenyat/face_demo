@@ -5,6 +5,6 @@
   <% end %>
   <%= debug "Versions: #{RUBY_ENGINE}-#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL} | Rails: #{Rails.version}" %>
   <% if GIT_BRANCH.present? %>
-    <%= debug "Git branch: #{GIT_BRANCH}; Commit: #{GIT_COMMIT} (#{l GIT_COMMIT_TIMESTAMP, format: '%d.%m.%Y %H:%M'})" %>
+    <%= debug "Git branch: #{GIT_BRANCH}; Commit: #{GIT_COMMIT} (#{l GIT_COMMIT_TIMESTAMP, format: '%I:%M %P %m/%d/%Y'})" %>
   <% end %>
 </div>

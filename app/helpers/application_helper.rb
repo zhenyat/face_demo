@@ -12,9 +12,11 @@ module ApplicationHelper
   # 23.06.2021  'language_switch_bootstrap' updated for Bootstrap 5 
   # 12.02.2022  object locales corrected
   ##############################################################################
+ 
   def app_name
     Rails.application.class.module_parent_name
   end
+  
   ##############################################################################
   #  Handles flash type and sets a note class
   #

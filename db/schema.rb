@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_27_132845) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_27_175923) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -59,6 +59,50 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_27_132845) do
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_coins_on_code", unique: true
     t.index ["name"], name: "index_coins_on_name", unique: true
+  end
+
+  create_table "fix_orders", force: :cascade do |t|
+    t.integer "order_id"
+    t.decimal "rate", precision: 15, scale: 5
+    t.decimal "amount", precision: 15, scale: 8
+    t.string "error"
+    t.integer "status", limit: 1, default: 4, null: false
+    t.string "x_id"
+    t.string "x_pair"
+    t.integer "x_type", limit: 1
+    t.decimal "x_done_amount", precision: 15, scale: 8
+    t.decimal "x_rest_amount", precision: 15, scale: 8
+    t.decimal "x_rate", precision: 15, scale: 5
+    t.integer "x_timestamp"
+    t.decimal "x_base", precision: 15, scale: 8
+    t.decimal "x_quote", precision: 15, scale: 5
+    t.integer "x_status", limit: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_fix_orders_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "run_id"
+    t.decimal "rate", precision: 15, scale: 5
+    t.decimal "amount", precision: 15, scale: 8
+    t.decimal "fix_rate", precision: 15, scale: 5
+    t.decimal "fix_amount", precision: 15, scale: 8
+    t.string "error"
+    t.integer "status", limit: 1, default: 4, null: false
+    t.string "x_id"
+    t.string "x_pair"
+    t.integer "x_type", limit: 1
+    t.decimal "x_done_amount", precision: 15, scale: 8
+    t.decimal "x_rest_amount", precision: 15, scale: 8
+    t.decimal "x_rate", precision: 15, scale: 5
+    t.integer "x_timestamp"
+    t.decimal "x_base", precision: 15, scale: 8
+    t.decimal "x_quote", precision: 15, scale: 5
+    t.integer "x_status", limit: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["run_id"], name: "index_orders_on_run_id"
   end
 
   create_table "pair_nicknames", force: :cascade do |t|
@@ -125,6 +169,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_27_132845) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "coin_nicknames", "coins"
+  add_foreign_key "fix_orders", "orders"
+  add_foreign_key "orders", "runs"
   add_foreign_key "pair_nicknames", "pairs"
   add_foreign_key "runs", "pairs"
   add_foreign_key "trades", "pairs"

@@ -1,0 +1,22 @@
+
+<%= simple_form_for(@run) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.association :pair %>
+    <%= f.association :kind %>
+    <%= f.input :depo %>
+    <%= f.input :last %>
+    <%= f.input :start %>
+    <%= f.input :overlay %>
+    <%= f.input :martingale %>
+    <%= f.input :orders %>
+    <%= f.input :profit %>
+    <%= f.association :scale %>
+    <%= f.input :stop_loss %>
+    <%= f.input :status %>
+
+    <%= render 'shared/form_actions', f: f, object: @run %>
+  </div>
+<% end %>

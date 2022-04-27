@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <p style="color: green"><%= notice %></p>
+
+  <h1>Runs</h1>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Pair</th>
+        <th>Kind</th>
+        <th>Depo</th>
+        <th>Last</th>
+        <th>First Indent</th>
+        <th>Overlay</th>
+        <th>Martingale</th>
+        <th>Orders Number</th>
+        <th>Profit</th>
+        <th>Scale</th>
+        <th>Stop loss</th>
+        <th>Status</th>
+        <th>Actions<th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @runs.each do |run| %>
+        <tr>
+          <td><%= run.pair.name %></td>
+          <% if run.sell? %>
+            <td style="color: red"><%= 'Sell' %></td>
+          <% else %>
+            <td style="color: green"><%= 'Buy' %></td>
+          <% end %>
+          <td><%= run.depo %></td>
+          <td><%= run.last %></td>
+          <td><%= run.indent %></td>
+          <td><%= run.overlap %></td>
+          <td><%= run.martingale %></td>
+          <td><%= run.orders_number %></td>
+          <td><%= run.profit %></td>
+          <td><%= run.scale %></td>
+          <td><%= run.stop_loss %></td>
+          <td><%= status_mark run.status %></td>
+
+          <td><%= render 'shared/index_buttons', resource: run %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class='row'>
+    <div class='col-md-2'>
+      <%= link_to "New", new_run_path, class: 'btn btn-primary btn-sm' %>
+    </div>
+  </div>
+</div>

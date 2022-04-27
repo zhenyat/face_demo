@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_27_090240) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_27_132845) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -92,6 +92,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_27_090240) do
     t.index ["quote_id"], name: "index_pairs_on_quote_id"
   end
 
+  create_table "runs", force: :cascade do |t|
+    t.integer "pair_id"
+    t.integer "kind", limit: 1, default: 0, null: false
+    t.decimal "depo", precision: 15, scale: 5, null: false
+    t.decimal "last", precision: 15, scale: 5, null: false
+    t.float "indent", default: 10.0, null: false
+    t.float "overlap", default: 10.0, null: false
+    t.float "martingale", default: 15.0, null: false
+    t.integer "orders_number", default: 10, null: false
+    t.float "profit", default: 1.0, null: false
+    t.integer "scale", limit: 1, default: 1, null: false
+    t.decimal "stop_loss", precision: 15, scale: 5, null: false
+    t.integer "status", limit: 1, default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pair_id"], name: "index_runs_on_pair_id"
+  end
+
   create_table "trades", force: :cascade do |t|
     t.integer "pair_id", null: false
     t.integer "kind", limit: 1, default: 0, null: false
@@ -108,5 +126,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_27_090240) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "coin_nicknames", "coins"
   add_foreign_key "pair_nicknames", "pairs"
+  add_foreign_key "runs", "pairs"
   add_foreign_key "trades", "pairs"
 end

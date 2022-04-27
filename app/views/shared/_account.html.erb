@@ -1,0 +1,20 @@
+<% if @account_data.present? %>
+  <div class="container-fluid">
+    <h4 class="text-muted">Account Data</h4>
+    <div class="row">
+      <div class="col-md-1 text-muted">
+        <h5>Balance:</h5>
+      </div>
+      <% @account_data['funds'].each do |key, value| %>
+        <div class="col-md-1">
+          <%= "#{key}: #{value}" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <%= "Open Orders: #{@account_data['open_orders']}" %>
+      </div>
+    </div>
+  </div>
+<% end %>

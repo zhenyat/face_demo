@@ -1,0 +1,42 @@
+<% if @orders.present? %>
+  <div class="container-fluid">
+    <h4 class="text-muted">Orders</h4>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th><%= 'ID' %></th>
+          <th><%= 'EX ID' %></th>
+          <th><%= 'Rate' %></th>
+          <th><%= 'Amount' %></th>
+          <th><%= 'Quote to Spend' %></th>
+          <th><%= 'Fix Rate' %></th>
+          <th><%= 'Fix Amount' %></th>
+          <th><%= 'Quote to Earn' %></th>
+          <th><%= 'Profit' %></th>
+          <th><%= 'Status' %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.id %></td>
+            <td><%= order.x_id %></td>
+            <td><%= number_to_currency order.rate, precision: 3, unit: quote_unit %></td>
+            <td><%= order.amount %></td>
+            <td><%= number_to_currency quote_to_spend(order), precision: 3, unit: quote_unit %></td>
+            <td><%= number_to_currency order.fix_rate, precision: 3, unit: quote_unit %></td>
+            <td><%= order.fix_amount %></td>
+            <td><%= number_to_currency quote_to_earn(order), precision: 3, unit: quote_unit %></td>
+            <td><%= number_to_currency quote_profit(order), precision: 3, unit: quote_unit %></td>
+            <td><%= order.status %></td>
+            <% if order.x_id.present?  %>
+              <td>
+                <%= link_to 'More', "#", class: 'btn btn-sm btn-outline-dark btn-block', onclick: "alert('Order EX ID: ' + #{order.x_id} + \"\\nPair: \" + \"#{order.x_pair}\" + \"\\nType: \" + \"#{order.x_type}\" + \"\\nDone Amount: \" + #{order.x_done_amount} + \"\\nRest Amount: \" + #{order.x_rest_amount} + \"\\nRate: \" + #{order.x_rate} + \"\\nTimestamp: \" + #{order.x_timestamp} + \"\\nBase Fund: \" + #{order.x_base} + \"\\nQuote Fund: \" + #{order.x_quote} + \"\\nStatus: \" + \"#{order.x_status}\" + \"\\nError: \" + \"#{order.error}\")" %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

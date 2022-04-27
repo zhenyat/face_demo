@@ -1,0 +1,49 @@
+<% if @fix_orders.present? %>
+  <div class="container-fluid">
+    <h></h>
+    <h4 class="text_muted">Fix Orders</h4>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th><%= 'ID' %></th>
+          <th><%= 'EX ID' %></th>
+          <th><%= 'Order ID' %></th>
+          <th><%= 'Type' %></th>
+          <th><%= 'Rate' %></th>
+          <th><%= 'Amount' %></th>
+          <th><%= 'Status' %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @fix_orders.each do |fix_order| %>
+          <tr>
+            <td><%= fix_order.id %></td>
+            <td><%= fix_order.x_id %></td>
+            <td><%= fix_order.order.id %></td>
+            <% if fix_order.x_type.present? %>
+              <% if fix_order.x_type == 'sell' %>
+                <td class="ask"><%= 'Sell' %></td>
+              <% else %>
+                <td class="bid"><%= 'Buy' %></td>
+              <% end %>
+            <% else %>
+              <% if @run.kind == 'buy' %>
+                <td class="ask"><%= 'Sell' %></td>
+              <% else %>
+                <td class="bid"><%= 'Buy' %></td>
+              <% end %>
+            <% end %>
+            <td><%= number_to_currency fix_order.rate, precision: 3, unit: quote_unit %></td>
+            <td><%= fix_order.amount %></td>
+            <td><%= fix_order.status %></td>
+            <% if fix_order.x_id.present?  %>
+              <td>
+                <%= link_to 'More', "#", class: 'btn btn-sm btn-outline-dark btn-block', onclick: "alert('Order EX ID: ' + #{fix_order.x_id} + \"\\nPair: \" + \"#{fix_order.x_pair}\" + \"\\nType: \" + \"#{fix_order.x_type}\" + \"\\nDone Amount: \" + #{fix_order.x_done_amount} + \"\\nRest Amount: \" + #{fix_order.x_rest_amount} + \"\\nRate: \" + #{fix_order.x_rate} + \"\\nTimestamp: \" + #{fix_order.x_timestamp} + \"\\nBase Fund: \" + #{fix_order.x_base} + \"\\nQuote Fund: \" + #{fix_order.x_quote} + \"\\nStatus: \" + \"#{fix_order.x_status}\" + \"\\nError: \" + \"#{fix_order.error}\")" %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

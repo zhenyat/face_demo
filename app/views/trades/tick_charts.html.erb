@@ -1,0 +1,9 @@
+<% content_for :google_candlesticks_scripts do %>
+  <%= javascript_include_tag "tick_charts.js" %>
+<% end %>
+<h5><%= "Time elapsed: #{@time_elapsed} seconds" %></h5>
+<hr/>
+<h1>WEX Tick Charts (priceMin - priceMax, priceFirst - priceLast)</h1>
+<% @pairs.each do |pair| %>
+  <div id="<%= pair %>_chart_div"></div>
+<% end %>

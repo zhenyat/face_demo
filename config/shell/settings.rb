@@ -6,7 +6,7 @@
 #   11.10.2016  Inherited from 95km
 #   09.11.2016  MULTILINGUAL added
 #   30.08.2017  'access_restricted' key is added
-#   24.04.2022  Adopted
+#   27.04.2022  Adopted
 ################################################################################
 
 ##### Debugging   #####
@@ -30,11 +30,11 @@ MAIL_BCC = SHELL_CONFIG['mail']['bcc']
 ACCESS_RESTRICTED = SHELL_CONFIG['access_restricted']
 
 ##### Pattern constants  #####
-EQUAL_PERCENT = ZT_CONFIG['equal_percent']
-LONG_SHADOW   = ZT_CONFIG['long_shadow']
-SMALL_SHADOW  = ZT_CONFIG['small_shadow']
+EQUAL_PERCENT = SHELL_CONFIG['equal_percent']
+LONG_SHADOW   = SHELL_CONFIG['long_shadow']
+SMALL_SHADOW  = SHELL_CONFIG['small_shadow']
 
 ##### Time Slot for candles  #####
-PERIOD     = eval ZT_CONFIG['period'] 
-TIME_SLOT  = eval ZT_CONFIG['time_slot']
-TIME_SLOTS = ZT_CONFIG['time_slots'] 
+PERIOD     = eval SHELL_CONFIG['period'] 
+TIME_SLOT  = eval SHELL_CONFIG['time_slot']
+TIME_SLOTS = SHELL_CONFIG['time_slots'] 

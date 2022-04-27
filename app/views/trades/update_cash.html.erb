@@ -1,0 +1,13 @@
+<h5>
+  <%= "Time elapsed to update cashed data files: #{@time_elapsed} seconds" %>
+</h5>
+<hr/>
+<% if @no_data %>
+  <h4 class="ask"><%= "No cash for the Period! Create it again" %></h4>
+<% else  %>
+  <% @pairs.each_with_index do |pair, index| %>
+    <h3><%= "#{pair}" %></h3>
+    <p><%= "First candle: #{@candles_first[index]}" %></p>
+    <p><%= "Last candle: #{@candles_last[index]}" %></p>
+  <% end %>
+<% end %>

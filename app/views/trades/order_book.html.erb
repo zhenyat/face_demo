@@ -1,0 +1,54 @@
+<h3 class="text-info">
+  <%= "Order Book (Depth): Active Orders for each Pair (Asks: Sell offers / Bids: Buy offers)" %>
+</h3>
+<hr/>
+<% if @asks.present? && @bids.present? %>
+  <div class="container-fluid">
+    <div class="row">
+      <% @pairs.each_with_index do |pair, index| %>
+        <div class="col-md-3">
+          <h4 class="text-danger">
+            <%= "#{pair}" %>
+          </h4>
+          <table class="table table-striped table-hover table-sm">
+            <thead class="heading thead-dark">
+              <th class="bg-danger"><%= "Amount" %></th>
+              <th class="bg-danger"><%= "@ask" %></th>
+            </thead>
+            <tbody>
+              <% @asks[index].each do |ask| %>
+                <tr class="table-danger">
+                  <td><%= ask.last %></td>
+                  <td><%= ask.first %></td>
+                </tr>
+              <% end %>
+              <tr></tr>
+            </tbody>
+          </table>
+          <table class="table table-striped table-hover table-sm">
+            <tr class="table-info">
+              <td><%= "Spread (abs / rel):" %></td>
+              <% gap_abs = (@asks[index].last.first - @bids[index].first.first).round(2) %>
+              <% gap_rel = (gap_abs / @asks[index].last.first * 100).round(3) %>
+              <td><%= "#{gap_abs} / #{gap_rel} %" %></td>
+            </tr>
+          </table>
+          <table class="table table-striped table-hover table-sm">
+            <thead class="heading thead-dark">
+              <th class="bg-success"><%= "Amount" %></th>
+              <th class="bg-success"><%= "@bid" %></th>
+              <tbody>
+                <% @bids[index].each do |bid| %>
+                  <tr class="table-success">
+                    <td><%= bid.last %></td>
+                    <td><%= bid.first %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </thead>
+          </table>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

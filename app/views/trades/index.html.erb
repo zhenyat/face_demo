@@ -1,0 +1,48 @@
+<div class="container">
+  <h5><%= "Time elapsed: #{@time_elapsed} seconds" %></h5>
+  <hr/>
+  <% trades_count = 0 %>
+  <% @pairs.each_with_index do |pair, index| %>
+    <% if @trades[index].present? %>
+      <h3>
+        <%= "#{pair}: Trades added = #{@trades_added[trades_count]}" %>
+      </h3>
+      <% trades_count += 1 %>
+      <div class="container-fluid">
+        <table class="table table-striped table-hover">
+          <thead class="heading">
+            <tr>
+              <th><%= 'TID' %></th>
+              <th><%= 'Date' %></th>
+              <th><%= 'Type' %></th>
+              <th><%= "Rate (#{pair.split('_').last.upcase})" %></th>
+              <th><%= "Amount (#{pair.split('_').first.upcase})" %></th>
+              <th><%= "Total (#{pair.split('_').last.upcase})" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @trades[index].each do |trade| %>
+              <% if trade.timestamp > (Time.now - 5.minutes).to_trades_count%>
+                <tr>
+                  <td><%= trade.tid %></td>
+                  <td><%= date_from_timestamp trade.timestamp %></td>
+                  <% if trade.sell? %>
+                    <td style="color: red"><%= 'Sell' %></td>
+                  <% else %>
+                    <td style="color: green"><%= 'Buy' %></td>
+                  <% end %>
+                  <td><%= trade.rate %></td>
+                  <td><%= trade.amount %></td>
+                  <td><%= (trade.rate * trade.amount).round(8) %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  <% end %>
+  <% if trades_count == 0 %>
+    <h5 style="color: red">No trades found!</h5>
+  <% end %>
+</div>

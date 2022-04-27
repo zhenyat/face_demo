@@ -1,7 +1,7 @@
 PATH
   remote: ../../../Ruby/Gems/face
   specs:
-    face (0.0.3)
+    face (0.0.4)
 
 GEM
   remote: https://rubygems.org/

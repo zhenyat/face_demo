@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_25_170910) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_27_090240) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -92,8 +92,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_25_170910) do
     t.index ["quote_id"], name: "index_pairs_on_quote_id"
   end
 
+  create_table "trades", force: :cascade do |t|
+    t.integer "pair_id", null: false
+    t.integer "kind", limit: 1, default: 0, null: false
+    t.decimal "rate", precision: 15, scale: 5
+    t.decimal "amount", precision: 15, scale: 8
+    t.integer "tid"
+    t.datetime "timestamp", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pair_id"], name: "index_trades_on_pair_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "coin_nicknames", "coins"
   add_foreign_key "pair_nicknames", "pairs"
+  add_foreign_key "trades", "pairs"
 end

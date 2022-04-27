@@ -27,7 +27,7 @@ class Pair < ApplicationRecord
 
   has_many :pair_nicknames, dependent: :delete_all
 
-  # has_many   :trades
+  has_many   :trades
 
   enum level:  %w(Major Minor Exotic)
   enum status: %w(active archived)

@@ -1,0 +1,9 @@
+<h5>
+  <%= "Time elapsed to create cashed data files: #{@time_elapsed} seconds" %>
+</h5>
+<hr/>
+<% @pairs.each_with_index do |pair, index| %>
+  <h3><%= "#{pair}" %></h3>
+  <p><%= "First candle: #{@candles_first[index]}" %></p>
+  <p><%= "Last candle: #{@candles_last[index]}" %></p>
+<% end %>
